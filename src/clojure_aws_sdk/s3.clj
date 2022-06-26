@@ -1,4 +1,4 @@
-(ns clojure-aws-sdk.aws.s3
+(ns clojure-aws-sdk.s3
   (:import (com.amazonaws.services.s3 AmazonS3ClientBuilder AmazonS3Client)))
 
 ;; TODO use standrd AmazonS3ClientBuilder with credentials-provider
