@@ -1,5 +1,6 @@
 (ns clojure-aws-sdk.secrets-manager
-  (:import (com.amazonaws.services.secretsmanager AWSSecretsManagerClientBuilder)))
+  (:import (com.amazonaws.services.secretsmanager AWSSecretsManagerClientBuilder AWSSecretsManagerClient)
+           (com.amazonaws.services.secretsmanager.model GetSecretValueRequest)))
 
 ;; TODO: implement support for "standard" client
 (def client (AWSSecretsManagerClientBuilder/defaultClient))
@@ -12,3 +13,10 @@
 ;; list-secrets
 ;; update-secret
 
+(defn get-secret-value
+  "Takes the ARN or name of the secret to retrieve.
+  Returns the content of the secret"
+  [^AWSSecretsManagerClient client ^String secret-id]
+  (let [request (doto (GetSecretValueRequest.)
+                  .withSecretId secret-id)]
+    (.getSecretString (.getSecretValue client request))))
