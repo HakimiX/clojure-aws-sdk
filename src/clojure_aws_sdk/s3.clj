@@ -5,6 +5,14 @@
 
 (def client (AmazonS3ClientBuilder/defaultClient))
 
-(defn object-exists?
-  [^AmazonS3Client client bucket key]
-  (.doesObjectExist client bucket key))
+(defn object-exist?
+  "Takes the name of the bucket containing the object and the name
+  of the object that has to be checked."
+  [^AmazonS3Client client bucket-name object-name]
+  (.doesObjectExist client bucket-name object-name))
+
+(defn bucket-exist?
+  "Takes the name of the bucket to check"
+  [^AmazonS3Client client bucket-name]
+  (.doesBucketExistV2 client bucket-name))
+
