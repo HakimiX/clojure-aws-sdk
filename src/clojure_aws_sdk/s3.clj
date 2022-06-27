@@ -8,8 +8,8 @@
 (defn object-exist?
   "Takes the name of the bucket containing the object and the name
   of the object that has to be checked.
-  Returns the value true if the specified object exists in the Amazon S3 bucket; the value
-  false if the object doesn't exist in the specified Amazon S3 bucket"
+  Returns the value true if the specified object exists in the Amazon S3 bucket;
+  the value false if the object doesn't exist in the specified Amazon S3 bucket"
   [^AmazonS3Client client ^String bucket-name ^String object-name]
   (.doesObjectExist client bucket-name object-name))
 
