@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "first_name": "Elmo",
+    "last_name": "Geaveny",
+    "email": "egeaveny0@adobe.com",
+    "gender": "Male",
+    "ip_address": "224.6.38.23"
+  },
+  {
+    "id": 2,
+    "first_name": "Wendel",
+    "last_name": "Siemianowicz",
+    "email": "wsiemianowicz1@google.de",
+    "gender": "Male",
+    "ip_address": "130.67.237.218"
+  },
+  {
+    "id": 3,
+    "first_name": "Gusella",
+    "last_name": "Repp",
+    "email": "grepp2@smh.com.au",
+    "gender": "Genderqueer",
+    "ip_address": "237.99.61.10"
+  },
+  {
+    "id": 4,
+    "first_name": "Luca",
+    "last_name": "Lias",
+    "email": "llias3@histats.com",
+    "gender": "Male",
+    "ip_address": "221.225.148.11"
+  },
+  {
+    "id": 5,
+    "first_name": "Darrin",
+    "last_name": "Bousler",
+    "email": "dbousler4@state.gov",
+    "gender": "Male",
+    "ip_address": "123.147.102.16"
+  }
+]
