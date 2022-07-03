@@ -10,6 +10,7 @@ resource "aws_s3_bucket" "sample_bucket" {
   }
 }
 
+// Uploading a file to a bucket
 resource "aws_s3_bucket_object" "sample_bucket_object" {
   bucket     = aws_s3_bucket.sample_bucket.id
   key        = "sample-object.json"
