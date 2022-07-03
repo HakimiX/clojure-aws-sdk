@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Chevrolet",
+    "model": "Malibu",
+    "year": 2010,
+    "vin": "1FTEX1E83AK520010"
+  },
+  {
+    "id": 2,
+    "name": "Chrysler",
+    "model": "Cirrus",
+    "year": 1999,
+    "vin": "SCBBP9ZA3BC842971"
+  },
+  {
+    "id": 3,
+    "name": "Chevrolet",
+    "model": "Silverado 2500",
+    "year": 2008,
+    "vin": "WDDJK7DA6DF074932"
+  },
+  {
+    "id": 4,
+    "name": "Mercedes-Benz",
+    "model": "300D",
+    "year": 1992,
+    "vin": "WBA5M6C54ED922627"
+  },
+  {
+    "id": 5,
+    "name": "Hummer",
+    "model": "H2",
+    "year": 2005,
+    "vin": "WAUDGBFL0BA442975"
+  },
+  {
+    "id": 6,
+    "name": "Dodge",
+    "model": "Ram 2500",
+    "year": 2001,
+    "vin": "WAUDG94F96N465014"
+  },
+  {
+    "id": 7,
+    "name": "Toyota",
+    "model": "Matrix",
+    "year": 2010,
+    "vin": "1G6D25EY9B0448749"
+  },
+  {
+    "id": 8,
+    "name": "Pontiac",
+    "model": "Grand Am",
+    "year": 2000,
+    "vin": "SCBGU3ZAXDC463769"
+  },
+  {
+    "id": 9,
+    "name": "Land Rover",
+    "model": "Freelander",
+    "year": 2005,
+    "vin": "WAUHE78P78A574306"
+  },
+  {
+    "id": 10,
+    "name": "Toyota",
+    "model": "Land Cruiser",
+    "year": 1994,
+    "vin": "2T1BU4EE6DC846167"
+  }
+]
