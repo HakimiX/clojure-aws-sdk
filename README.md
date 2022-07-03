@@ -14,7 +14,7 @@ todo...
 ### Terraform 
 Terraform is an infrastructure as code (IaC) tool that is used to
 create and manage resources on cloud platforms and other services through 
-their APIs. In the example, the AWS provider is used to interact with AWS 
+their APIs. In this example, the AWS provider is used to interact with AWS 
 resources. 
 > Terraform version v1.2.4 _(on darwin_arm64)_
 
