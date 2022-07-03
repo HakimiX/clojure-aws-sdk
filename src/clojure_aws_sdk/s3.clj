@@ -14,6 +14,6 @@
 
 (defn bucket-exist?
   "Takes the name of the bucket to check. Returns the value true if the
-  specified bucket exists; the value false if there is no bucketwith that name."
+  specified bucket exists; the value false if there is no bucket with that name."
   [^AmazonS3Client client ^String bucket-name]
   (.doesBucketExistV2 client bucket-name))
