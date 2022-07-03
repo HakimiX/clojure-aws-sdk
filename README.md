@@ -21,6 +21,18 @@ resources.
 ```shell
 # Initialize terraform backend
 terraform init
+
+# Validate iac
+terraform validate
+
+# Create execution plan
+terraform plan
+
+# Apply infrastructre
+terraform apply
+
+# Destroy infrastructure
+terraform destroy
 ```
 
 todo...
@@ -46,13 +58,22 @@ localstack service status
 ;; Require the S3 namespace
 (require '[clojure-aws-sdk.s3 :as bob])
 
+;; Define bucket name for later use
+(def bucket-name "bamboozle-sample-bucket")
+
 ;; Check if a bucket exists (returns true/false)
 (s3/bucket-exist? s3/client "bamboozle-sample-bucket")
-=> True
+=> true
 
 (s3/bucket-exist? s3/client "does-not-exist")
-=> False
+=> false
 
+;; Check if an object exists in a bucket (returns true/false)
+(s3/object-exist? s3/client bucket-name "sample-object.json")
+=> true
+
+(s3/object-exist? s3/client bucket-name "does-not-exist.json")
+=> false
 ```
 
 ## Sources

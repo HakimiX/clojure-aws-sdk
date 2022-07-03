@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "city": "South River",
+    "country": "Canada",
+    "domain": "mit.edu",
+    "email": "chufton0@cargocollective.com"
+  },
+  {
+    "id": 2,
+    "city": "Mulyorejo",
+    "country": "Indonesia",
+    "domain": "amazon.com",
+    "email": "lcattlemull1@goo.gl"
+  },
+  {
+    "id": 3,
+    "city": "Doro Oo",
+    "country": "Indonesia",
+    "domain": "simplemachines.org",
+    "email": "amaccague2@tinypic.com"
+  }
+]
