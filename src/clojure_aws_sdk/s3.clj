@@ -29,6 +29,10 @@
   [^AmazonS3Client client ^String bucket]
   (.doesBucketExistV2 client bucket))
 
+(defn delete-bucket
+  [cred ^String bucket]
+  (.deleteBucket (client cred) bucket))
+
 (defprotocol ^{:no-doc true} Mappable
   "Convert a value into a Clojure map."
   (^{:no-doc true} to-map [x] "Return a map of the value."))
