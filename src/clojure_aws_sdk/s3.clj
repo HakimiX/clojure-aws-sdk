@@ -51,8 +51,8 @@
   (to-map (.craeteBucket (client cred) name)))
 
 (defn delete-bucket
-  [cred ^String bucket]
-  (.deleteBucket (client cred) bucket))
+  [cred ^String name]
+  (.deleteBucket (client cred) name))
 
 (defn list-buckets
   "List all the S3 buckets for the supplied credentials. The buckets will be
