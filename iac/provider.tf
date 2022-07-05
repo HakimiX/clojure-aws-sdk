@@ -9,22 +9,22 @@ terraform {
 
 // Standard AWS provider
 /*provider "aws" {
-  alias = "aws"
   profile = "default"
   region  = "eu-west-1"
 }*/
 
 // LocalStack AWS provider
 provider "aws" {
-  alias = "aws-localstack"
   profile                     = "localstack"
   region                      = "eu-west-1"
   access_key                  = "mock_access_key"
   secret_key                  = "mock_secret_key"
+
   skip_credentials_validation = true
   skip_metadata_api_check     = true
   skip_requesting_account_id  = true
   s3_force_path_style         = true
+
   endpoints {
     apigateway     = "http://localhost:4566"
     cloudformation = "http://localhost:4566"
