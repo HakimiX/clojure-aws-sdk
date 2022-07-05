@@ -54,6 +54,10 @@
   [cred ^String name]
   (.deleteBucket (client cred) name))
 
+(defn delete-object
+  [cred ^String bucket ^String key]
+  (.deleteObject (client cred) bucket key))
+
 (defn list-buckets
   "List all the S3 buckets for the supplied credentials. The buckets will be
   returned as a seq of maps with the following keys:
