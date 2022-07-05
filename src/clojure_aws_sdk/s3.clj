@@ -1,9 +1,11 @@
 (ns clojure-aws-sdk.s3
   (:require [clojure.java.io :as io])
-  (:import (com.amazonaws.services.s3 AmazonS3Client)
+  (:import (com.amazonaws.services.s3 AmazonS3Client AmazonS3ClientBuilder)
            (com.amazonaws.services.s3.model PutObjectRequest ObjectMetadata Bucket Owner)
-           (com.amazonaws.auth BasicSessionCredentials BasicAWSCredentials)
-           (java.io ByteArrayInputStream)))
+           (com.amazonaws.auth BasicSessionCredentials BasicAWSCredentials DefaultAWSCredentialsProviderChain)
+           (java.io ByteArrayInputStream)
+           (com.amazonaws ClientConfiguration)
+           (com.amazonaws.client.builder AwsClientBuilder$EndpointConfiguration)))
 
 ;; TODO use standrd AmazonS3ClientBuilder with credentials-provider
 ;; TODO: implement S3 operations
@@ -14,12 +16,38 @@
 ;; Delete an Object
 ;; Delete Multiple Objects at Once
 
-(defn- client
-  [creds]
-  (AmazonS3Client.
-    (if (:token creds)
-      (BasicSessionCredentials. (:access-key creds) (:secret-key creds) (:token creds))
-      (BasicAWSCredentials. (:access-key creds) (:secret-key creds)))))
+;;final AwsClientBuilder.EndpointConfiguration endpoint = new AwsClientBuilder.EndpointConfiguration(s3Endpoint, REGION);
+;;final AmazonS3 client = AmazonS3ClientBuilder.standard()
+;;.withEndpointConfiguration(endpoint)
+;;.build();
+
+(defn client
+  [cred]
+  (let [endpoint-config (doto (AwsClientBuilder$EndpointConfiguration)
+                            (.withEndpointConfiguration (:endpoint cred) (.withRegion "eu-west-1")))
+        s3-client (-> (AmazonS3ClientBuilder/standard)
+                      (.withCredentials (DefaultAWSCredentialsProviderChain.))
+                      .build)
+        ]
+    #_(-> (AwsClientBuilder$EndpointConfiguration)
+        (.withEndpointConfiguration (:endpoint cred))
+        (.withRegion "eu-west-1"))
+    s3-client))
+
+#_(defn- client
+  [cred]
+  (let [client-configuration (ClientConfiguration.)]
+    (when-let [conn-timeout (:conn-timeout cred)]
+      (.setConnectionTimeout client-configuration conn-timeout))
+    (let [aws-creds
+          (if (:token cred)
+            (BasicSessionCredentials. (:access-key cred) (:secret-key cred) (:token cred))
+            (BasicAWSCredentials. (:access-key cred) (:secret-key cred)))
+          client (AmazonS3Client. aws-creds client-configuration)]
+      (when-let [endpoint (:endpoint cred)]
+        (doto (withEndpointConfiguration.
+                (.withEndpoint endpoint)))
+      client))))
 
 (defprotocol ^{:no-doc true} Mappable
   "Convert a value into a Clojure map."
