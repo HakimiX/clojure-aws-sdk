@@ -3,7 +3,7 @@
 * [AWS Services](#aws-services)
 * [Deploy Infrastructure](#deploy-infrastructure)
   * [Terraform](#terraform)
-* [REPL Examples](#repl-examples)
+* [REPL](#repl)
 * [Local Development using LocalStack](#local-development-using-localstack)
 * [Sources](#sources)
 
@@ -52,7 +52,7 @@ localstack start -d
 localstack service status
 ```
 
-## REPL Examples 
+## REPL 
 ### S3
 ```clojure
 ;; Require the S3 namespace
