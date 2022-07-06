@@ -1,6 +1,5 @@
 (ns clojure-aws-sdk.lambda
-  (:import (com.amazonaws.services.lambda.model GetFunctionConfigurationRequest GetFunctionConfigurationRequest)
-           (com.amazonaws.services.lambda AWSLambdaClient)))
+  (:import (com.amazonaws.services.lambda AWSLambdaClient)))
 
 (defn list-functions
   "Returns a list of lambda functions, with the version-specific configuration
