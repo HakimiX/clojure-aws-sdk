@@ -1,6 +1,6 @@
 (ns clojure-aws-sdk.ssm
   (:import (com.amazonaws.services.simplesystemsmanagement.model GetParameterRequest)
-           (com.amazonaws.services.simplesystemsmanagement AWSSimpleSystemsManagementClient AWSSimpleSystemsManagement)))
+           (com.amazonaws.services.simplesystemsmanagement AWSSimpleSystemsManagement)))
 
 (defn get-parameter
   [^AWSSimpleSystemsManagement client paramter]
