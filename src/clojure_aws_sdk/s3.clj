@@ -1,11 +1,10 @@
 (ns clojure-aws-sdk.s3
   (:require [clojure.java.io :as io])
-  (:import (com.amazonaws.services.s3 AmazonS3Client AmazonS3ClientBuilder)
+  (:import (com.amazonaws.services.s3 AmazonS3Client)
            (com.amazonaws.services.s3.model PutObjectRequest ObjectMetadata Bucket Owner)
-           (com.amazonaws.auth BasicSessionCredentials BasicAWSCredentials DefaultAWSCredentialsProviderChain)
+           (com.amazonaws.auth BasicAWSCredentials DefaultAWSCredentialsProviderChain)
            (java.io ByteArrayInputStream)
-           (com.amazonaws ClientConfiguration)
-           (com.amazonaws.client.builder AwsClientBuilder$EndpointConfiguration)))
+           (com.amazonaws ClientConfiguration)))
 
 ;; TODO use standrd AmazonS3ClientBuilder with credentials-provider
 ;; TODO: implement S3 operations
@@ -15,11 +14,6 @@
 ;; Copy, Move, or Rename Objects
 ;; Delete an Object
 ;; Delete Multiple Objects at Once
-
-;;final AwsClientBuilder.EndpointConfiguration endpoint = new AwsClientBuilder.EndpointConfiguration(s3Endpoint, REGION);
-;;final AmazonS3 client = AmazonS3ClientBuilder.standard()
-;;.withEndpointConfiguration(endpoint)
-;;.build();
 
 (defn- s3-client*
   "Create an AmazonS3Client instance from a map of credentials and client configuration
