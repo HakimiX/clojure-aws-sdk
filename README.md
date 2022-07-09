@@ -1,8 +1,8 @@
 # Clojure AWS SDK for Java
 
 * [AWS Services](#aws-services)
-* [Deploy Infrastructure](#deploy-infrastructure)
-  * [Terraform](#terraform)
+* [Local Development using AWS](#local-development-using-aws)
+  * [Deploy Infrastructure using Terraform](#deploy-infrastructure-using-terraform)
 * [Local Development using LocalStack](#local-development-using-localstack)
 * REPL Examples
   * [S3](docs/s3.md)
@@ -11,8 +11,8 @@
 ## AWS Services
 todo...
 
-## Deploy Infrastructure
-### Terraform 
+## Local Development using AWS
+### Deploy Infrastructure using Terraform
 Terraform is an infrastructure as code (IaC) tool that is used to
 create and manage resources on cloud platforms and other services through 
 their APIs. In this example, the AWS provider is used to interact with AWS 
