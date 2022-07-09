@@ -36,8 +36,6 @@ terraform apply
 terraform destroy
 ```
 
-todo...
-
 ## Local Development using LocalStack
 Start LocalStack inside a Docker container using LocalStack CLI.<br>
 _Requirements: python3, pip, and Docker._

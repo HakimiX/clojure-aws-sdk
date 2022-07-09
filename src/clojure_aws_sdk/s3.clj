@@ -63,26 +63,26 @@
   [^AmazonS3Client client ^String bucket]
   (.doesBucketExistV2 client bucket))
 
-#_(defn create-bucket
+(defn create-bucket
   [cred ^String name]
-  (to-map (.craeteBucket (client cred) name)))
+  (to-map (.craeteBucket (s3-client* cred) name)))
 
-#_(defn delete-bucket
+(defn delete-bucket
   [cred ^String name]
-  (.deleteBucket (client cred) name))
+  (.deleteBucket (s3-client* cred) name))
 
-#_(defn delete-object
+(defn delete-object
   [cred ^String bucket ^String key]
-  (.deleteObject (client cred) bucket key))
+  (.deleteObject (s3-client* cred) bucket key))
 
-#_(defn list-buckets
+(defn list-buckets
   "List all the S3 buckets for the supplied credentials. The buckets will be
   returned as a seq of maps with the following keys:
     :name          - the bucket name
     :creation-date - the date when the bucket was created
     :owner         - the owner of the bucket"
   [creds]
-  (map to-map (.listBuckets (client creds))))
+  (map to-map (.listBuckets (s3-client* creds))))
 
 (defn payload->input-stream
   "Convert payload to inputstream."
@@ -91,6 +91,6 @@
     (ByteArrayInputStream. (.getBytes payload))))
 
 (defn put-object
-  [^AmazonS3Client client ^String bucket ^String key payload]
+  [^AmazonS3Client client ^String bucket ^String key ^String payload]
   (->> (PutObjectRequest. bucket key (payload->input-stream payload) (ObjectMetadata.))
        (.putObject client)))
