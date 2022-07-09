@@ -99,3 +99,4 @@ localstack service status
 
 ## Sources
 * [LocalStack](https://github.com/localstack/localstack)
+* [Unknown host when using LocalStack](https://stackoverflow.com/questions/68034637/unknown-host-when-using-localstack-with-spring-cloud-aws-2-3)
