@@ -21,33 +21,22 @@
 ;;.withEndpointConfiguration(endpoint)
 ;;.build();
 
-(defn client
-  [cred]
-  (let [endpoint-config (doto (AwsClientBuilder$EndpointConfiguration)
-                            (.withEndpointConfiguration (:endpoint cred) (.withRegion "eu-west-1")))
-        s3-client (-> (AmazonS3ClientBuilder/standard)
-                      (.withCredentials (DefaultAWSCredentialsProviderChain.))
-                      .build)
-        ]
-    #_(-> (AwsClientBuilder$EndpointConfiguration)
-        (.withEndpointConfiguration (:endpoint cred))
-        (.withRegion "eu-west-1"))
-    s3-client))
-
-#_(defn- client
-  [cred]
-  (let [client-configuration (ClientConfiguration.)]
-    (when-let [conn-timeout (:conn-timeout cred)]
-      (.setConnectionTimeout client-configuration conn-timeout))
-    (let [aws-creds
-          (if (:token cred)
-            (BasicSessionCredentials. (:access-key cred) (:secret-key cred) (:token cred))
-            (BasicAWSCredentials. (:access-key cred) (:secret-key cred)))
-          client (AmazonS3Client. aws-creds client-configuration)]
-      (when-let [endpoint (:endpoint cred)]
-        (doto (withEndpointConfiguration.
-                (.withEndpoint endpoint)))
-      client))))
+(defn- s3-client*
+  "Create an AmazonS3Client instance from a map of credentials and client configuration
+  parameters such as "
+  [{:keys [access-key secret-key endpoint] :as creds}]
+  (let [client-config (ClientConfiguration.)]
+    (when-let [conn-timout (:conn-timeout creds)]
+      (.setConnectionTimeout client-config conn-timout))
+    (when-let [max-conns (:max-conns creds)]
+      (.setMaxConnections client-config max-conns))
+    ;; Add more client config parameters here if needed (i.e. proxy-host, proxy-port, etc.)
+    (let [creds (if (and access-key secret-key)
+                  (BasicAWSCredentials. access-key secret-key)
+                  (DefaultAWSCredentialsProviderChain.))
+          client (AmazonS3Client. creds client-config)]
+      (if endpoint (.setEndpoint client endpoint))
+      client)))
 
 (defprotocol ^{:no-doc true} Mappable
   "Convert a value into a Clojure map."
@@ -74,19 +63,19 @@
   [^AmazonS3Client client ^String bucket]
   (.doesBucketExistV2 client bucket))
 
-(defn create-bucket
+#_(defn create-bucket
   [cred ^String name]
   (to-map (.craeteBucket (client cred) name)))
 
-(defn delete-bucket
+#_(defn delete-bucket
   [cred ^String name]
   (.deleteBucket (client cred) name))
 
-(defn delete-object
+#_(defn delete-object
   [cred ^String bucket ^String key]
   (.deleteObject (client cred) bucket key))
 
-(defn list-buckets
+#_(defn list-buckets
   "List all the S3 buckets for the supplied credentials. The buckets will be
   returned as a seq of maps with the following keys:
     :name          - the bucket name
