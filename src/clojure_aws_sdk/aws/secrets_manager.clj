@@ -1,4 +1,4 @@
-(ns clojure-aws-sdk.secrets-manager
+(ns clojure-aws-sdk.aws.secrets-manager
   (:import (com.amazonaws.services.secretsmanager AWSSecretsManagerClientBuilder AWSSecretsManagerClient)
            (com.amazonaws.services.secretsmanager.model GetSecretValueRequest)))
 

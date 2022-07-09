@@ -1,4 +1,4 @@
-(ns clojure-aws-sdk.s3
+(ns clojure-aws-sdk.aws.s3
   (:require [clojure.java.io :as io])
   (:import (com.amazonaws.services.s3 AmazonS3Client)
            (com.amazonaws.services.s3.model PutObjectRequest ObjectMetadata Bucket Owner)

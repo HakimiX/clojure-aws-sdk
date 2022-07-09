@@ -1,4 +1,4 @@
-(ns clojure-aws-sdk.ssm
+(ns clojure-aws-sdk.aws.ssm
   (:import (com.amazonaws.services.simplesystemsmanagement.model GetParameterRequest)
            (com.amazonaws.services.simplesystemsmanagement AWSSimpleSystemsManagement AWSSimpleSystemsManagementClientBuilder)
            (com.amazonaws.auth BasicSessionCredentials BasicAWSCredentials)))

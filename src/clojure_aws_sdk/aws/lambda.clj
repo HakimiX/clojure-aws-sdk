@@ -1,4 +1,4 @@
-(ns clojure-aws-sdk.lambda
+(ns clojure-aws-sdk.aws.lambda
   (:import (com.amazonaws.services.lambda AWSLambdaClient)))
 
 (defn list-functions
