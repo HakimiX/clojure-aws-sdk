@@ -17,7 +17,7 @@
 
 (defn- s3-client*
   "Create an AmazonS3Client instance from a map of credentials and client configuration
-  parameters such as "
+  parameters such as connection timeout and proxy settings."
   [{:keys [access-key secret-key endpoint] :as creds}]
   (let [client-config (ClientConfiguration.)]
     (when-let [conn-timout (:conn-timeout creds)]
