@@ -4,6 +4,8 @@
 * [Local Development using AWS](#local-development-using-aws)
   * [Deploy Infrastructure using Terraform](#deploy-infrastructure-using-terraform)
 * [Local Development using LocalStack](#local-development-using-localstack)
+  * [Start LocalStack](#start-localstack)
+  * [AWS CLI with LocalStack](#aws-cli-with-localstack)
 * REPL Examples
   * [S3](docs/s3.md)
 * [Sources](#sources)
@@ -37,6 +39,7 @@ terraform destroy
 ```
 
 ## Local Development using LocalStack
+### Start LocalStack
 Start LocalStack inside a Docker container using LocalStack CLI.<br>
 _Requirements: python3, pip, and Docker._
 ```shell
@@ -51,6 +54,12 @@ localstack start -d
 localstack service status
 ```
 ![](resources/images/localstack-services.png)
+
+### AWS CLI with LocalStack
+```shell
+# List Lambda Functions 
+aws --endpoint-url=http://0.0.0.0:4566 lambda list-functions 
+```
 
 ## Sources
 * [LocalStack](https://github.com/localstack/localstack)
