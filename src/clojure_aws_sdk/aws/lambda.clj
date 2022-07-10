@@ -1,9 +1,11 @@
 (ns clojure-aws-sdk.aws.lambda
-  (:import (com.amazonaws.services.lambda AWSLambdaClient)
-           (com.amazonaws ClientConfiguration)
-           (com.amazonaws.auth BasicAWSCredentials DefaultAWSCredentialsProviderChain)))
+  (:import (com.amazonaws.services.lambda AWSLambdaClient AWSLambdaClientBuilder)
+           (com.amazonaws.auth BasicAWSCredentials)))
 
-(defn lambda-client*
+;; Lambda using Localstack is executed in a container, so LocalStack and Lambda are running
+;; in different containers.
+
+#_(defn lambda-client*
   "Creates an AWSLambdaClient instance from a map of credentials and client configuration
   parameters such as connection timeout and proxy settings."
   [{:keys [access-key secret-key endpoint]}]
