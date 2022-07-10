@@ -57,6 +57,10 @@ localstack service status
 
 ### AWS CLI with LocalStack
 ```shell
+# List S3 buckets
+aws --endpoint-url=http://0.0.0.0:4566 s3api list-buckets 
+aws --endpoint-url=http://0.0.0.0:4566 s3api list-buckets --query "Bucket[some-bucket]"
+
 # List Lambda Functions 
 aws --endpoint-url=http://0.0.0.0:4566 lambda list-functions 
 ```
