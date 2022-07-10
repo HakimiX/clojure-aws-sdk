@@ -61,6 +61,9 @@ localstack service status
 aws --endpoint-url=http://0.0.0.0:4566 s3api list-buckets 
 aws --endpoint-url=http://0.0.0.0:4566 s3api list-buckets --query "Bucket[some-bucket]"
 
+# Delete S3 object
+ aws --endpoint-url=http://0.0.0.0:4566 s3api delete-object --bucket <bucket> --key <key>
+
 # List Lambda Functions 
 aws --endpoint-url=http://0.0.0.0:4566 lambda list-functions 
 ```
